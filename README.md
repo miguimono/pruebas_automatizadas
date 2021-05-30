@@ -488,15 +488,12 @@ Para poder ejecutar el proceso visual comparativo se debe seguir los siguientes 
 
 ### Resultados:
 
-TODO
 
 ### PROS
 
-TODO
 
 ### CONTRAS
 
-TODO
 
 
 ----
