@@ -139,7 +139,8 @@ Luego de unos minutos concluirá la instalación de todas las librerías necesar
 Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
 
 1. Ejecutar la plataforma Ghost en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo puppeteer/src/index.js en las lineas 34 y 35 con la información adecuada. 
-2. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: `node ./src/index.js`
+2. Crear en la plataforma Ghost un usuario y ajustar el archivo "prueba/02_reconicimiento/puppeteer/src/index.js" en las líneas 85 y 86 con estas credenciales.
+3. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: `node ./src/index.js`
 
 ### Resultados
 
@@ -261,7 +262,8 @@ Luego de unos minutos concluirá la instalación de todas las librerías necesar
 Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
 
 1. Ejecutar la plataforma Ghost en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo "prueba/03_e2e/puppeteer/src/index.js" en las lineas 95 y 96 con la información adecuada. 
-2. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: `node ./src/index.js`
+2. Crear en la plataforma Ghost un usuario y ajustar el archivo "prueba/03_e2e/puppeteer/src/index.js" en las líneas 755 y 757 con estas credenciales.
+3. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: `node ./src/index.js`
 
 ### Resultados:
 
@@ -425,7 +427,8 @@ Luego de unos minutos concluirá la instalación de todas las librerías necesar
 Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
 
 1. Ejecutar la plataforma Ghost V3.3.0 en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo "prueba/04_regresion_visual/puppeteer_3.3.0/src/index.js" en las lineas 95 y 96 con la información adecuada. 
-2. Ubicarse en la carpeta "prueba/04_regresion_visual/puppeteer_3.3.0/" y ejecutar el comando: `node ./src/index.js`
+2. Crear en la plataforma Ghost un usuario y ajustar el archivo "prueba/03_e2e/puppeteer/src/index.js" en las líneas 755 y 757 con estas credenciales.
+3. Ubicarse en la carpeta "prueba/04_regresion_visual/puppeteer_3.3.0/" y ejecutar el comando: `node ./src/index.js`
 
 #### Resultados:
 
@@ -453,7 +456,8 @@ Luego de unos minutos concluirá la instalación de todas las librerías necesar
 Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
 
 1. Ejecutar la plataforma Ghost V3.42.5 en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo "prueba/04_regresion_visual/puppeteer_3.42.5/src/index.js" en las lineas 95 y 96 con la información adecuada. 
-2. Ubicarse en la carpeta "prueba/04_regresion_visual/puppeteer_3.42.5/" y ejecutar el comando: `node ./src/index.js`
+2. Crear en la plataforma Ghost un usuario y ajustar el archivo "prueba/03_e2e/puppeteer/src/index.js" en las líneas 755 y 757 con estas credenciales.
+3. Ubicarse en la carpeta "prueba/04_regresion_visual/puppeteer_3.42.5/" y ejecutar el comando: `node ./src/index.js`
 
 #### Resultados:
 
@@ -486,4 +490,174 @@ Para poder ejecutar el proceso visual comparativo se debe seguir los siguientes 
 
 TODO
 
+### PROS
 
+TODO
+
+### CONTRAS
+
+TODO
+
+
+----
+
+# Pruebas de Escenarios de Validación de Datos
+
+## Introducción:
+
+El proceso de pruebas de escenario de validación de datos de la plataforma Ghost V3.42.5 usa las siguientes estrategias: (i) pool de datos a-priori, 
+(ii) pool de datos (pseudo) aleatorio dinámico y (iii) escenario aleatorio. 
+
+Las principales herramientas usadas para lograr el objetivo fueron: Puppeteer, Faker y Mockaroo.
+
+## Funcionalidades bajo pruebas:
+
+Las funcionalidades bajo prueba están alrededor de los POSTS en la plataforma Ghost. 
+
+Se ha identificado cada funcionalidad por una letra, que servirá para explicar la lógica de los escenarios de pruebas:
+
+* L: login. Esta funcionalidad corresponde al ingreso a la plataforma Ghost. Aplica a todos los escenarios.
+* O: logout. Esta funcionalidad corresponde a la salida de a la plataforma Ghost. Aplica a todos los escenarios.
+* C: crear. Esta funcionalidad corresponde a la creación de un nuevo POST en la plataforma Ghost.
+* M: modificar. Esta funcionalidad corresponde a la modificación de un POST que no se hayan publicado.
+* MP: modificar. Esta funcionalidad corresponde a la modificación de un POST que ya se hayan publicado (actualización).
+* P: publicar. Esta funcionalidad corresponde a la publicación de un POST en la plataforma Ghost.
+* E: Eliminar. Esta funcionalidad corresponde a la eliminación de un POST en la plataforma Ghost.
+
+## Escenarios de pruebas:
+
+Los escenarios de pruebas combinan en diferente orden las funcionalidades en prueba para poder determinar posibles fallos generados en su interacción.
+
+Algunos escenarios requieren tareas previas para alistar el sistema Ghost para ejecutarlo, a estas actividades se les definió como : precondición.
+
+De igual manera algunos escenarios requieren tareas posteriores para dejar el sistema Ghost igual que antes de aplicar el escenario de pruebas, a estas actividades se les definió como : postcondición
+
+* Escenario de prueba 1: LCO
+Este escenario combina las funcionalidades Logueo y Creación de un POST. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 2: LMO
+Este escenario combina las funcionalidades Logueo y Modificación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 3: LPO
+Este escenario combina las funcionalidades Logueo y Publicación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 4: LEO
+Este escenario combina las funcionalidades Logueo y Eliminación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 5: LCMO
+Este escenario combina las funcionalidades Logueo, Creación y Modificación de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 6: LCPO
+Este escenario combina las funcionalidades Logueo, Creación y Publicación de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 7: LCEO
+Este escenario combina las funcionalidades Logueo, Creación y Eliminación de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 8: LMEO
+Este escenario combina las funcionalidades Logueo, Modificación y Eliminación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 9: LMPO
+Este escenario combina las funcionalidades Logueo, Modificación y Publicación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 10: LMCO 
+Este escenario combina las funcionalidades Logueo, Modificación y Creación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 11: LPEO
+Este escenario combina las funcionalidades Logueo, Publicación y Eliminación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 12: LPMO
+Este escenario combina las funcionalidades Logueo, Publicación y Modificación (actualización) de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 13: LMPEO
+Este escenario combina las funcionalidades Logueo, Modificación, Publicación y Eliminación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 14: LMCEO
+Este escenario combina las funcionalidades Logueo, Modificación, Creación y Eliminación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 15: LCMPO
+Este escenario combina las funcionalidades Logueo, Creación, Modificación y Publicación de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 16: LPMEO
+Este escenario combina las funcionalidades Logueo, Publicación, Modificación (actualización) y Eliminación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 17: LMCPO
+Este escenario combina las funcionalidades Logueo, Modificación, Creación y Publicación de un POST prexistente en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 18: LCPMO
+Este escenario combina las funcionalidades Logueo, Creación, Publicación y Modificación (actualización) de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 19: LCPEO
+Este escenario combina las funcionalidades Logueo, Creación, Publicación y Eliminación de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+* Escenario de prueba 20: LCPMEO
+Este escenario combina las funcionalidades Logueo, Creación, Publicación, Modificación y Eliminación de un POST en la plataforma Ghost. Finalmente sale de la plataforma (Logout).
+
+## Pruebas ejecutadas:
+
+Se diseño el software para que realice tres ciclos de pruebas sobre todos los escenario de pruebas así:
+
+* Tipo de prueba 0: pool de datos a-priori con valores conocidos que se sabe funcionan en la plataforma Ghost.
+* Tipo de prueba 1: pool de valores pseudo aleatorios obtenidos con faker.
+* Tipo de prueba 2: pool de valores aleatorios obtenidos con el API de Mockaroo usando "naughty string"
+
+Cada ciclo a su vez contiene cuatro ciclos internos, los cuales definen un rango de longitud de las cadenas de texto generadas de la siguiente manera:
+
+* Largo 0. mensajes de texto entre 0 y 10 caracteres/palabras
+* Largo 1. mensajes de texto entre 11 y 100 caracteres/palabras
+* Largo 2. mensajes de texto entre 101 y 500 caracteres/palabras
+* Largo 3. mensajes de texto entre 501 y 1000 caracteres/palabras
+ 
+ De esta forma se tiene un total de 3x4=12 ciclos sobre todos los 20 escenarios de pruebas, lo que da 240 escenarios de prueba. 
+
+## PUPPETEER:
+
+### Instalación:
+
+Una vez se clona el repositorio es necesario instalara las librerías necesarias para su funcionamiento. Para ello ubíquese en la carpeta "prueba/05_escenarios_validacion_datos/puppeteer" y ejecute el siguiente comando:
+
+`npm install`
+
+Luego de unos minutos concluirá la instalación de todas las librerías necesarias.
+
+### Ejecución:
+
+Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
+
+1. Ejecutar la plataforma Ghost en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo "prueba/05_escenarios_validacion_datos/puppeteer/src/index.js" en las líneas 116 y 117 con la información adecuada.
+2. Crear en la plataforma Ghost un usuario y ajustar el archivo "prueba/05_escenarios_validacion_datos/puppeteer/src/index.js" en las líneas 119 y 120 con estas credenciales.
+3. Ubicarse en la carpeta "prueba/05_escenarios_validacion_datos/puppeteer/src" y ejecutar el comando: 
+
+`node ./src/index.js`
+
+### Resultados:
+
+Los resultados obtenidos de la ejecución de pueden observar por la consola y en la generación de imágenes PNG guardadas en la carpeta puppeteer/images. 
+
+En esta carpeta hay subcarpetas nombradas por cada ciclo de ejecución. Por ejemplo la carpeta ciclo_3-tipo_prueba_0-largo_2 se interpreta como: 
+
+* Ciclo de ejecución 3, 
+* Tipo de prueba 0 (pool de datos a-priori) y 
+* Largo 2 (mensajes de texto entre 101 y 500 caracteres/palabras) 
+
+El nombre de cada imagen contiene el escenario de prueba (EP) a la cual pertenece, las funcionalidades que hacen parte del escenario de pruebas, índice y nombre de la funcionalidad específica probada e índice interno de los pasos dentro de la funcionalidad. 
+
+Por ejemplo: EP02-LMO-02-modificar-01.png, se interpreta como:
+
+* Escenario de Pruebas 02 : EP02.
+* Información de la secuencia de pruebas : Login, Modificación y Salida : LMO.
+* Pertenencia de la prueba a la funcionalidad : 02-modificar.
+* Índice de la imagen en los pasos de prueba de la funcionalidad : 01. 
+
+### PROS
+
+* Este tipo de pruebas permiten ejecutar una gran cantidad de pruebas con una diversa cantidad de datos, pudiendo generar con ellos cientos escenarios de prueba.
+* Mediante las pruebas realizadas se pueden validar y establecer valores de frontera.
+* Con la generación de datos aleatorios se puede inyectar información mas allá de lo que un usuaario convencional haría.
+
+### CONTRAS
+
+* El proceso se ejecución es demorado.
+* Las salidas de la prueba son abundantes y puede ser abrumador analizarlas.
+* Se debe tener mucho detalle en la captura de errores generados en el proceso de la prueba para que no falle la ejecución.
+
+<hr>
