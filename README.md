@@ -140,3 +140,15 @@ Cumplido lo anterior, estando en la carpeta prueba/02 reconicimiento , se ejecut
 
 Los resultados generados se expresan como una serie de imágenes generadas en el proceso de pruebas. Estas imágenes se encuentran en el directorio de ejecución, subdirectorio images.
 
+#### Pros del uso de la herramienta puppeteer
+
+La principal ventaja del uso de la herramienta Puppeteer es el poder automatizar las pruebas de interfaz, lo que puede permitir identificar errores generados por cambios en la codificación o en la secuencia de los procesos.
+
+Otra, es que la herramienta al ser libre y teniendo el apoyo de Google la hace un elemento importante dentro del arsenal de cualquier ingeniero de pruebas.
+
+Finalmente, esta herramienta permite generar casos de prueba que pueden ser compartidos y analizados fácilmente.
+
+#### Contras del uso de la herramienta puppeteer
+
+Curva de aprendizaje no demasiado plana.
+
