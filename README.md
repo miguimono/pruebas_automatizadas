@@ -128,17 +128,17 @@ o.	Confirma que si se creó el post con el título definido
 
 ###	Codificación de la prueba
 
-En el repositorio en la carpeta pruebas/02 reconocimiento, encontrará el archivo index.js con el código de la prueba a traves de puppeteer.
+En el repositorio en la carpeta pruebas/02_reconocimiento/puppeteer/src, encontrará el archivo index.js con el código de la prueba a traves de puppeteer.
 
 ### Ejecución de la prueba
 
-Para poder ejecutar la prueba como prerrequisito debe tenerse instalado y ejecutando el software bajo prueba : Ghost v. 3.3.0. Este software debe tener desplegada su interfaz web localmente en el puerto 2368.
+Para poder ejecutar la prueba como prerrequisito debe tenerse instalado y ejecutando el software bajo prueba : Ghost v. 3.3.0. Este software debe tener desplegada su interfaz web localmente en el puerto 2368. De igual forma tener instalada la librería puppeteer.
 
-Cumplido lo anterior, estando en la carpeta prueba/02 reconicimiento , se ejecuta el comando node index.js y con ello se activa la prueba de reconocimeinto automatizada a traves de puppeteer.
+Cumplido lo anterior, estando en la carpeta prueba/02_reconicimiento/puppeteer/src , se ejecuta el comando node index.js y con ello se activa la prueba de reconocimeinto automatizada a traves de puppeteer.
 
 ### Resultados
 
-Los resultados generados se expresan como una serie de imágenes generadas en el proceso de pruebas. Estas imágenes se encuentran en el directorio de ejecución, subdirectorio images.
+Los resultados generados se expresan como una serie de imágenes generadas en el proceso de pruebas. Estas imágenes se encuentran en la carpeta prueba/02_reconicimiento/puppeteer/images.
 
 #### Pros del uso de la herramienta puppeteer
 
