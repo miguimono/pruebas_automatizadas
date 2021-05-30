@@ -92,3 +92,51 @@ Este escenario genero un issue que está reportado en : https://github.com/ssali
 
 Este escenario genero un issue que está reportado en : https://github.com/ssalinasvuniandes/pruebas_automatizadas/issues/1
 
+----
+
+# Pruebas automatizadas de reconocimiento
+
+## Introducción
+
+Los navegadores son aplicaciones cuya principal función es permitir el acceso a contenido web al consultar información de servidores en internet y renderizar contenido mixto en una interfaz gráfica. Ghost, al ser una aplicación web, funciona en estos navegadores, ya que son la principal forma de interacción con el usuario y, por ende, representan un objetivo importante al momento de hacer pruebas automáticas.
+
+Teniendo en cuenta lo anterior, es apenas natural hacer pruebas para validar el comportamiento de las aplicaciones web. Esto se hace por medio de herramientas como Puppeteer, que automatizan la interacción con los navegadores web por medio de comandos escritos en un lenguaje de programación convencional. De esta forma es posible explorar las funcionalidades que desee probar.
+
+## ¿Qué es Puppeteer?
+
+Puppeteer es una librería lanzada en 2017 que brinda un API para automatizar el navegador de Chromium o Chrome. Esta brinda la posibilidad de ejecutar varias funcionalidades sobre una aplicación web de forma automática al manipular un clon del navegador. Está disponible únicamente para Node.js y soporta la mayoría de las interacciones y modificaciones sobre los navegadores más recientes. Este proyecto es mantenido por el equipo de Chrome DevTools.
+
+## Procedimiento
+
+### Lista de las acciones que comprenden la prueba
+
+a.	Accede a la página de Login
+b.	Hace clic en el botón Forgot?
+c.	Hace clic en el boton de Sign in sin datos
+d.	Llena los campos del formulario con datos errados
+e.	Hace clic en el boton Sign in con datos erroneos
+f.	Llena los campos del formulario con datos correctos
+g.	Hace clic en el boton Sign in con datos correctos
+h.	Accede a la página de listado de POSTS
+i.	Hace clic en el boton de New Post
+j.	Llena el campos del titulo con datos correctos
+k.	Hace clic en el boton de opciones para que active el boton de publicar 
+l.	Hace clic en el boton de Publish para que muestre el boton de publicar el post
+m.	Hace clic en el boton de Publish para que crear el nuevo post 
+n.	Hace clic en el boton de Post para regresar a la lista de posts 
+o.	Confirma que si se creó el post con el título definido
+
+###	Codificación de la prueba
+
+En el repositorio en la carpeta pruebas/02 reconocimiento, encontrará el archivo index.js con el código de la prueba a traves de puppeteer.
+
+### Ejecución de la prueba
+
+Para poder ejecutar la prueba como prerrequisito debe tenerse instalado y ejecutando el software bajo prueba : Ghost v. 3.3.0. Este software debe tener desplegada su interfaz web localmente en el puerto 2368.
+
+Cumplido lo anterior, estando en la carpeta prueba/02 reconicimiento , se ejecuta el comando node index.js y con ello se activa la prueba de reconocimeinto automatizada a traves de puppeteer.
+
+### Resultados
+
+Los resultados generados se expresan como una serie de imágenes generadas en el proceso de pruebas. Estas imágenes se encuentran en el directorio de ejecución, subdirectorio images.
+
