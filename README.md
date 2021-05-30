@@ -145,7 +145,7 @@ Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes paso
 
 Los resultados generados se expresan como una serie de imágenes generadas en el proceso de pruebas. Estas imágenes se encuentran en la carpeta "prueba/02_reconicimiento/puppeteer/images".
 
-#### Pros del uso de la herramienta puppeteer
+#### PROS
 
 La principal ventaja del uso de la herramienta Puppeteer es el poder automatizar las pruebas de interfaz, lo que puede permitir identificar errores generados por cambios en la codificación o en la secuencia de los procesos.
 
@@ -153,7 +153,7 @@ Otra, es que la herramienta al ser libre y teniendo el apoyo de Google la hace u
 
 Finalmente, esta herramienta permite generar casos de prueba que pueden ser compartidos y analizados fácilmente.
 
-#### Contras del uso de la herramienta puppeteer
+#### CONTRAS
 
 Curva de aprendizaje inclinada.
 
@@ -260,12 +260,12 @@ Luego de unos minutos concluirá la instalación de todas las librerías necesar
 
 Para poder ejecutar los escenarios de pruebas se debe seguir los siguientes pasos:
 
-1. Ejecutar la plataforma Ghost en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo puppeteer/src/index.js en las lineas 95 y 96 con la información adecuada. 
+1. Ejecutar la plataforma Ghost en el entorno local bajo el puerto 2368. Si esto no es así se requiere modificar el archivo "prueba/03_e2e/puppeteer/src/index.js" en las lineas 95 y 96 con la información adecuada. 
 2. Ubicarse en la carpeta "puppeteer" y ejecutar el comando: `node ./src/index.js`
 
 ### Resultados:
 
-Los resultados obtenidos de la ejecución de pueden pobservar por la consola y en la generación de imágenes PNG guardadas en la carpeta puppeteer/images. El nombre de cada imágen contiene el escenario de prueba (EP) a la cual pertenece, las funcionalidades que hacen parte del escenario de pruebas, indice y nombre de la funcionalidad específica probada e índice interno de los pasos dentro de la funcionalidad.
+Los resultados obtenidos de la ejecución de pueden pobservar por la consola y en la generación de imágenes PNG guardadas en la carpeta "prueba/03_e2e/puppeteer/images". El nombre de cada imágen contiene el escenario de prueba (EP) a la cual pertenece, las funcionalidades que hacen parte del escenario de pruebas, indice y nombre de la funcionalidad específica probada e índice interno de los pasos dentro de la funcionalidad.
 
 Por ejemplo: EP02-LMO-02-modificar-01.png, se interpreta como:
 
@@ -273,6 +273,20 @@ Por ejemplo: EP02-LMO-02-modificar-01.png, se interpreta como:
 * Informacipon de la secuencia de pruebas : Login, Modificación y Salida : LMO.
 * Pertenencia de la prueba a la funcionalidadad : 02-modificar.
 * Índice de la imagen en los pasos de prueba de la funcionalidad : 01. 
+
+### PROS:
+
+* Curva de aprendizaje leve, incluso para los no expertos en JavaScript.
+* API limpia y bien documentada.
+* Amplio abanico de acciones que se pueden realizar y monitorear. 
+* Configurable y automatizable para ser usado en procesos de pruebas amplios.
+
+### CONTRAS:
+
+* Puppeteer no permite automatizar pruebas en navegadores que no sean Chrome o Chromium
+* Sólo permite su uso en JavaScript para Node.js.
+* Algunas veces no es fácil de programar por la complejidad del DOM de las aplicaciones Web actuales.
+* El tiempo de ejecución de los scripts no es rápido.
 
 ## Kraken
 
@@ -292,4 +306,17 @@ Tener en cuenta que las variables que existen en el el archivo `properties.json`
 
 Los resultados de las pruebas se pueden validar en la carpeta *reports*, en la cual se genera una nueva subcarpeta por cada escenario ejecutado.
 
+### PROS
+
+* La herramienta permite interactuar entre varios dispositivos al tiempo y logra crear flujos completos que involucran varios tipos de dispositivos
+* Para las pruebas e2e de la ABP Ghost solo se vio la necesidad de usar un solo dispositivo para pruebas en plataforma web lo que genera las pruebas de manera directa
+* La herramienta Kraken permite la creación de un archivo de configuraciones para centralizar la utilización de variables de pruebas
+* Se pueden realizar varios tipos de pruebas e2e de forma sencilla una vez se conoce el funcionamiento.
+* Una vez instalada la herramienta, es fácil crear un proyecto bajo pruebas con ella.
+
+### CONTRAS
+
+* No tiene una documentación extensa, lo que obliga a trabajar bajo la premisa de prueba y error, no se encuentra información en internet ya que la herramienta hace parte de un proyecto investigativo que aún está en proceso.
+* La herramienta en un inicio es complicada de usar ya que no se cuentan con proyectos o guías que ejemplifiquen su uso y funcionamiento.
+* Proceso de instalación complicado y con muchos pasos.
 
