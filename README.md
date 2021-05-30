@@ -150,5 +150,5 @@ Finalmente, esta herramienta permite generar casos de prueba que pueden ser comp
 
 #### Contras del uso de la herramienta puppeteer
 
-Curva de aprendizaje no demasiado plana.
+Curva de aprendizaje inclinada.
 
