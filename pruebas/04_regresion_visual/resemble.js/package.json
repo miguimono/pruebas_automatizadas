@@ -1,0 +1,15 @@
+{
+  "name": "resemble",
+  "version": "1.0.0",
+  "description": "prueba de regresion visual para ghost 3.3.0 a 3.42.5",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "santiago alejandro salinas vargas",
+  "license": "ISC",
+  "dependencies": {
+    "playwright": "^1.11.1",
+    "resemblejs": "^3.2.5"
+  }
+}
